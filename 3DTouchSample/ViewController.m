@@ -44,6 +44,7 @@
 
 -(void)registerPreview{
     if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        
         [self registerForPreviewingWithDelegate:self sourceView:self.tableViewList];
     }
     else {
@@ -52,7 +53,7 @@
 }
 
 -(void)createTableView{
-    _tableViewList =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _tableViewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     _tableViewList.delegate =self;
     _tableViewList.dataSource =self;
     _tableViewList.tableFooterView =[[UIView alloc]init];
@@ -63,6 +64,11 @@
 -(void)initDefaultData{
     self.title =@"复仇者联盟";
     self.arrayData =@[@"钢铁侠",@"雷神",@"黑寡妇",@"美国队长"];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate

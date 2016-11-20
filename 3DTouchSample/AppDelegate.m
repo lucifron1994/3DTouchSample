@@ -29,15 +29,15 @@
     
     //动态加载自定义的ShortcutItem
     if (application.shortcutItems.count == 0) {
-        UIMutableApplicationShortcutItem *itemThor =[[UIMutableApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%@.second",[[NSBundle mainBundle] bundleIdentifier]] localizedTitle:@"雷神" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeLocation] userInfo:nil];
-        UIMutableApplicationShortcutItem *itemBlack =[[UIMutableApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%@.third",[[NSBundle mainBundle] bundleIdentifier]] localizedTitle:@"黑寡妇" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeLocation] userInfo:nil];
-        UIMutableApplicationShortcutItem *itemCaptain =[[UIMutableApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%@.fourth",[[NSBundle mainBundle] bundleIdentifier]] localizedTitle:@"美国队长" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeLocation] userInfo:nil];
-        application.shortcutItems = @[itemBlack,itemCaptain,itemThor];
+        UIMutableApplicationShortcutItem *itemThor =[[UIMutableApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%@.second",[[NSBundle mainBundle] bundleIdentifier]] localizedTitle:@"雷神" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeLove] userInfo:nil];
+        UIMutableApplicationShortcutItem *itemCaptain =[[UIMutableApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%@.fourth",[[NSBundle mainBundle] bundleIdentifier]] localizedTitle:@"美国队长" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay] userInfo:nil];
+        application.shortcutItems = @[itemCaptain,itemThor];
     }
     return YES;
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler{
+    
     [_viewController.navigationController popToRootViewControllerAnimated:NO];
      _viewController.shortcutName =shortcutItem.localizedTitle;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShortCut" object:nil];

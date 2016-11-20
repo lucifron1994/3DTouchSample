@@ -39,7 +39,7 @@
     UIPreviewAction *action = [UIPreviewAction actionWithTitle:@"赞" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
 
     }];
-    return @[action];
+    return @[];
 }
 
 - (void)didReceiveMemoryWarning {
